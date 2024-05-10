@@ -34,6 +34,10 @@ app.get('/user', (req, res) => {
     res.render('user')
 })
 
+app.get('/create-user', (req, res) => {
+    res.render('admin/create-user')
+})
+
 
 app.get('/assistant', (req, res) => {
     res.render('assistant', { username: req.session.username });
