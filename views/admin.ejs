@@ -29,7 +29,8 @@
             </li>
           </ul>
           <form class="d-flex">
-            <a href="/create-user" class="btn btn-primary">Create User</a>
+            <a href="/create-user" class="btn btn-primary m-1">Create User</a>
+            <a href="/logout" class="btn btn-danger m-1">Log Out</a>
           </form>
     
         </div>
@@ -39,16 +40,20 @@
     <div class="mt-5">
         <h2>All Users</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">name</h5>
-                  <p class="card-text">Role: </p>
-                  <p class="card-text">Email: </p>
+            <% users.forEach(user => { %>
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= user.name %></h5>
+                    <p class="card-text">Role: <%= user.role %></p>
+                    <p class="card-text">Email: <%= user.email %></p>
+                    <a href="/edit-user/<%= user.id %>" class="btn btn-primary">Edit</a>
+                  </div>
                 </div>
               </div>
-            </div>
-        </div>
+            <% }); %>
+          </div>
+          
     </div>
   </div>
 </body>
